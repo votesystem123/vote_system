@@ -21,33 +21,35 @@
                         <h2>Sign Up</h2>
                         <div class="underline-title"></div>
                     </div>
+                    <p class="error_warning">{{ error_message }}</p>
                     <form method="post" class="login_form">
+                        {% csrf_token %}
                         <label for="user-email" style="padding-top:13px">
                             &nbsp;Name
                           </label>
-                        <input id="user-email" class="register_form_content" type="email" name="email" autocomplete="on" required />
-                        <div class="form-border"></div>
-                        <label for="user-email" style="padding-top:13px">
-                            &nbsp;Department
-                          </label>
-                        <input id="user-email" class="register_form_content" type="email" name="email" autocomplete="on" required />
+                        {{ form.name }}
                         <div class="form-border"></div>
                         <label for="user-email" style="padding-top:13px">
                             &nbsp;Email
                           </label>
-                        <input id="user-email" class="register_form_content" type="email" name="email" autocomplete="on" required />
+                        {{ form.email }}
+                        <div class="form-border"></div>
+                        <label for="user-email" style="padding-top:13px">
+                            &nbsp;Department
+                          </label>
+                        {{ form.department }}
                         <div class="form-border"></div>
                         <label for="user-email" style="padding-top:13px">
                             &nbsp;Age
                           </label>
-                        <input id="user-email" class="register_form_content" type="email" name="email" autocomplete="on" required />
+                        {{ form.age }}
                         <div class="form-border"></div>
                         <label for="user-password" style="padding-top:22px">&nbsp;Password
                           </label>
-                        <input id="user-password" class="register_form_content" type="password" name="password" required />
+                        {{ form.password }}
                         <div class="form-border"></div>
-                        <input class="register_submit_btn" type="submit" name="submit" value="LOGIN" />
-                        <a href="#" class="signup">Already have an account ?</a>
+                        <input class="register_submit_btn" type="submit" name="submit" value="SIGNUP" />
+                        <a href="{% url 'dashboard:login' %}" class="signup">Already have an account ?</a>
                     </form>
                 </div>
             </div>

@@ -21,21 +21,20 @@
                         <h2>LOGIN</h2>
                         <div class="underline-title"></div>
                     </div>
+                    <p class="error_warning">{{ error_message }}</p>
                     <form method="post" class="login_form">
+                        {% csrf_token %}
                         <label for="user-email" style="padding-top:13px">
                             &nbsp;Email
                           </label>
-                        <input id="user-email" class="form-content" type="email" name="email" autocomplete="on" required />
+                        {{ form.email }}
                         <div class="form-border"></div>
                         <label for="user-password" style="padding-top:22px">&nbsp;Password
                           </label>
-                        <input id="user-password" class="form-content" type="password" name="password" required />
+                        {{ form.password }}
                         <div class="form-border"></div>
-                        <a href="#">
-                          <legend class="forgot-pass">Forgot password?</legend>
-                        </a>
                         <input class="submit-btn" type="submit" name="submit" value="LOGIN" />
-                        <a href="#" class="signup">Don't have account yet?</a>
+                        <a href="{% url 'dashboard:register' %}" class="signup">Don't have account yet?</a>
                     </form>
                 </div>
             </div>
