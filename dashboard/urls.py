@@ -8,7 +8,7 @@ app_name = 'dashboard'
 
 urlpatterns = [
     path('register/', RegistrationView.as_view(), name='register'),
-    path('login/', LoginView.as_view(), name='login'),
+    path('', LoginView.as_view(), name='login'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('candidates/', CandidateView.as_view(), name='candidates'),
     path('createpoll/', CreatePollView.as_view(), name='create_poll'),
