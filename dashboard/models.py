@@ -56,3 +56,6 @@ class AiUser(AbstractBaseUser):
     class Meta:
         verbose_name = "Ai User"
         verbose_name_plural = "Ai Users"
+
+class Candidates(models.Model):
+    candidate = models.ForeignKey(AiUser, on_delete=models.CASCADE)
