@@ -54,15 +54,17 @@ class LoginView(View):
 class DashboardView(View):
     
     def get(self, request):
-        data_labels = ["Label1", "Label2", "Label3"]
-        data_values = [10, 20, 30]
+        
+        # data_labels = ["Label1", "Label2", "Label3"]
+        # data_values = [10, 20, 30]
 
         # Pass the data to the template
-        context = {
-            'labels': data_labels,
-            'values': data_values,
-        }
-        return render(request, 'dashboard/dashboard_admin_home.html',context )
+        # context = {
+        #     'labels': data_labels,
+        #     'values': data_values,
+        # }
+        # return render(request, 'dashboard/dashboard_student_home.html',context )
+        return render(request, 'dashboard/dashboard_student_home.html' )
 
 class CandidateView(View):
     

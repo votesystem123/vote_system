@@ -57,5 +57,34 @@ class AiUser(AbstractBaseUser):
         verbose_name = "Ai User"
         verbose_name_plural = "Ai Users"
 
+class Position(models.Model):
+    position_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.position_name
+    class Meta:
+        verbose_name = "position"
+        verbose_name_plural = "position"
+
 class Candidates(models.Model):
     candidate = models.ForeignKey(AiUser, on_delete=models.CASCADE)
+    postion = models.ForeignKey(Position, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.candidate
+    
+    class Meta:
+        verbose_name = "Candidates"
+        verbose_name_plural = "Candidates"
+
+class Vote(models.Model):
+    voter = models.ForeignKey(AiUser, on_delete=models.CASCADE)
+    candidate = models.ForeignKey(Candidates, on_delete=models.CASCADE)
+    vote_count = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.candidate
+    
+    class Meta:
+        verbose_name = "Vote"
+        verbose_name_plural = "Vote"
